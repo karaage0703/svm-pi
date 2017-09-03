@@ -52,8 +52,8 @@ def train_test_split(X, y, test_size=0.1, random_state=0):
 def svm_tuning(X, y, score='f1', test_size=0.1):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
 
-    # clf = GridSearchCV(SVC(), tuned_parameters, cv=5, scoring='%s_weighted' % score)
-    clf = GridSearchCV(SVC(), tuned_parameters, cv=5, scoring=score)
+    clf = GridSearchCV(SVC(), tuned_parameters, cv=5, scoring='%s_weighted' % score)
+    # clf = GridSearchCV(SVC(), tuned_parameters, cv=5, scoring=score)   # for old sklearn version
     clf.fit(X_train, y_train)
 
     return clf
